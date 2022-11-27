@@ -1,7 +1,6 @@
 {
   "name": "meow_v2",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,5 +16,14 @@
     "multer": "^1.4.5-lts.1",
     "mysql": "^2.18.1",
     "mysql2": "^2.3.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wyoung163/meow_v2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wyoung163/meow_v2/issues"
+  },
+  "homepage": "https://github.com/wyoung163/meow_v2#readme",
+  "description": ""
 }
