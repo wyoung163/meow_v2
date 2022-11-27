@@ -1,2 +1,4 @@
 node_modules
+
+# Database Information in .env
 .env
