@@ -27,5 +27,10 @@ app.use(
   })
 );
 
+//login
+const signup = require("./controllers/signup");
+app.get("/signup", signup);
+app.post("/signup", signup);
+
 app.listen(port);
 console.log(`app is listening port ${port}`);
