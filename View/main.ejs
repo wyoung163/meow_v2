@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title><%= title %></title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css"
+    />
+    <link href="/css/main.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap"
+      rel="stylesheet"
+    />
+    <%- include('./partials/head') %>
+  </head>
+
+  <body>
+    <%- include('./partials/nav') %>
+    <h1><a href="/" style="text-decoration: none; color: black">MEOW</a></h1>
+    <br />
+    <div class="top">
+      <hr class="line" />
+      <ul class="mainBar">
+        <li>
+          <a href="/category1"><i class="bi bi-list"></i>카테고리</a>
+        </li>
+        <li><a href="/myBoardList">나의 게시글 목록</a></li>
+        <li><a href="/otherBoardList">모든 게시글 목록</a></li>
+        <li><a href="/findThroughPlace">장소로 찾는 게시글 목록</a></li>
+        <li>
+          <a href="/addTag" class="nav-link"
+            ><i class="bi bi-plus"></i>태그 추가하기</a
+          >
+        </li>
+        <li>
+          <a href="/addBoard" class="nav-link"
+            ><i class="bi bi-pencil-square"></i>게시글 작성</a
+          >
+        </li>
+      </ul>
+      <hr class="line" />
+    </div>
+
+    <div class="wrap" id="left">
+      <div id="card">
+        <br />
+        <h4>인기 게시글 랭킹</h4>
+        <br />
+        <% if (rank5.length == 0) { %> 게시글이 존재하지 않습니다.
+        <br />
+        <br />
+        <% } else { %> <% for (let i = 0; i < rank5.length; i++) { %> <% if
+        (userid != rank5[i].user_id) { %>
+        <article>
+          #<%= i+1 %><br />
+          <div id="li">
+            <img
+              src="..<%=rank5[i].place_photo%>"
+              style="
+                width: 150px;
+                height: 150px;
+                object-fit: cover;
+                border-radius: 10%;
+              "
+            />
+            <div class="card-body">
+              <p class="card-text">
+                <br />
+                <%=rank5[i].place_name%> <br /><br />
+                <a
+                  href="/Otherboard/<%=rank5[i].post_num%>/"
+                  style="text-decoration: none; color: white"
+                  >구경하러가기</a
+                >
+              </p>
+              <br /><br />
+            </div>
+          </div>
+        </article>
+        <!-- &emsp;  -->
+        <% } else { %>
+        <article>
+          #<%= i+1 %><br />
+          <div id="li">
+            <img
+              src="../..<%=rank5[i].place_photo%>"
+              style="
+                width: 150px;
+                height: 150px;
+                object-fit: cover;
+                border-radius: 10%;
+              "
+            />
+            <div class="card-body">
+              <p class="card-text">
+                <br />
+                <%=rank5[i].place_name%> <br /><br />
+                <a
+                  href="/Myboard/<%=rank5[i].post_num%>/"
+                  style="text-decoration: none; color: white"
+                  >구경하러가기</a
+                >
+              </p>
+            </div>
+          </div>
+        </article>
+        <% } %><% } %> <% } %> &emsp;&emsp;
+      </div>
+    </div>
+
+    <div class="wrap" id="right">
+      <h4>인기 프로필 랭킹</h4>
+      <br /><br />
+      <% for (let i = 0; i < rank3.length; i++) { %>
+      <a
+        href="/profile/<%= rank3[i].user_id%>"
+        style="text-decoration: none; color: black"
+      >
+        <div
+          class="top_profile"
+          style="
+            padding: 10px;
+            display: inline-block;
+            border: 2px solid #92b4ec;
+            border-radius: 10px;
+          "
+        >
+          #<%= i+1 %><br /><br />
+          <!--img 기본 경로가 public이라서 /images로 들어가야돼-->
+          <img src="../images/user.png" width="100" height="100" /><br /><br />
+          <b>닉네임:</b> <%= rank3[i].nickname %> <br />
+          <b>이름:</b> <%= rank3[i].name %> <br />
+          <b>나이:</b> <%= rank3[i].age %>대 <br />
+          <b>직업:</b> <%= rank3[i].job %> <br />
+        </div>
+      </a>
+      <!-- &emsp;&emsp; -->
+      <% } %>
+    </div>
+  </body>
+</html>
