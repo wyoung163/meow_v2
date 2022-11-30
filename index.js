@@ -28,12 +28,12 @@ app.use(
 );
 
 //sing up
-const signup = require("./controllers/signup");
+const signup = require("./Controller/signup");
 app.get("/signup", signup);
 app.post("/signup", signup);
 //login and logout
-const login = require("./controllers/login");
-const logout = require("./controllers/logout");
+const login = require("./Controller/login");
+const logout = require("./Controller/logout");
 app.get("/login", login);
 app.post("/login", login);
 app.get("/logout", logout);
