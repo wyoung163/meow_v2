@@ -27,7 +27,7 @@ app.use(
   })
 );
 
-//login
+//sing up
 const signup = require("./controllers/signup");
 app.get("/signup", signup);
 app.post("/signup", signup);
