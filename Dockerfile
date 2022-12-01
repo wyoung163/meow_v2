@@ -1,6 +1,7 @@
-FROM ubuntu:20.04
+FROM node:16.13.1
 RUN apt-get update && mkdir -p /app
-COPY . /app/
+COPY package*.json /app/
 WORKDIR /app/
 RUN npm install
-CMD node
+COPY app.js /app/
+CMD [ "node", "app.js" ]
