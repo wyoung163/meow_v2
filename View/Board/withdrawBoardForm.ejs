@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title><%= title %></title>
+    </head>
+    <body>
+        <h1><%= title %></h1>
+        <form action = "/withdrawBoard" method = "post">
+            <input type="hidden" name="userid" value="<%=userid%>">
+            비밀번호 입력 <input type="password" name="password" size="12" maxlength="15">
+            <input type="submit" value="탈퇴">
+            <input type="reset" value="취소">
+        </form>
+    </body>
+</html>
