@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
+        <link href="/css/Board.css" rel="stylesheet"/>
+        <title><%= title %></title>
+        <%- include('../partials/head') %>
+    </head>
+
+    <body>
+        <title><%= title %></title>
+        <% if (requestUser == undefined) { %>
+            <%- include('../partials/loginNav') %>
+            <% } else { %>
+            <%- include('../partials/nav') %>
+            <% } %>
+            <h1><a href="/" style="text-decoration: none; color: black">MEOW</a></h1>
+            <a href="/" style="text-decoration:none; color: black; float:right; margin-right:50px">뒤로가기</a>
+        
+            <div class ="wrap">
+                <div id="card">
+                    <% if (postNum.length == 0) { %>
+                        <% if (requestUser != undefined) { %>
+                        <a href="/addBoard" class="nav-link" style="color:black; text-decoration: none; ">게시글 작성하기</a>
+                        <% } else {%><% } %><% } else { %>
+            <% for(var i = 0; i<postNum.length; i++) { %>
+                <input type="hidden" name="post_num"  value="<%=postNum[i]%>">
+                <input type="hidden" name="post_userid"  value="<%=post_userid[i]%>">
+                <%if(post_userid[i]==userid){%>
+                <article>
+                <div id="li">
+                <img src="<%=placePhoto[i]%>" style="width:150px; height:150px; object-fit: cover; border-radius: 10%;"/>
+                <div class="card-body" >
+                    <p class="card-text"> <br> <%=placeName[i]%> <br><br>
+                    <a href = "/Myboard/<%=postNum[i]%>/" style="text-decoration:none; color:white">구경하러가기</a></p>
+                      <br><br>
+                    </div>
+                </div>
+                </article>
+                <% } else { %>
+                    <article>
+                        <div id="li">
+                        <img src="<%=placePhoto[i]%>" style="width:150px; height:150px; object-fit: cover; border-radius: 10%;"/>
+                        <div class="card-body" >
+                            <p class="card-text"> <br> <%=placeName[i]%> <br><br>
+                                <a href = "/Otherboard/<%=postNum[i]%>/" style="text-decoration:none; color:white">구경하러가기</a></p>
+                              <br><br>
+                          </div>
+                        </div>
+                        </article>
+                <% } %>
+            <% } %>
+            <% } %>
+        </div>
+        </div>
+    </body>
+</html>
