@@ -24,7 +24,7 @@ router.get("/editBoard", async (req, res, next) => {
       [data[0][0].place_num]
     );
 
-    res.render("board/updateBoardform", {
+    res.render("board/updateBoardForm", {
       title: "게시글 수정",
       post: data[0][0],
       tags: data2[0],
