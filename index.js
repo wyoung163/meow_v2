@@ -28,20 +28,21 @@ app.use(
 );
 
 //sing up
-const signup = require("./controllers/signup");
+const signup = require("./Controller/signup");
 app.get("/signup", signup);
 app.post("/signup", signup);
 //login and logout
-const login = require("./controllers/login");
-const logout = require("./controllers/logout");
+const login = require("./Controller/login");
+const logout = require("./Controller/logout");
 app.get("/login", login);
 app.post("/login", login);
 app.get("/logout", logout);
 //post
-const addBoard = require("./controllers/addBoard");
-const editBoard = require("./controllers/editBoard");
-const showBoard = require("./controllers/showBoardController");
-const findBoard = require("./controllers/findBoardController");
+const addBoard = require("./Controller/addBoard");
+const editBoard = require("./Controller/editBoard");
+const showBoard = require("./Controller/showBoardController");
+const findBoard = require("./Controller/findBoardController");
+const deleteBoard = require("./Controller/deleteBoard");
 app.get("/addBoard", addBoard);
 app.post("/addBoard", addBoard);
 app.get("/editBoard", editBoard);
