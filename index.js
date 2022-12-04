@@ -29,6 +29,9 @@ app.use(
   })
 );
 
+//main
+const main = require("./Controller/main");
+app.use("/", main);
 //sing up
 const signup = require("./Controller/signup");
 app.get("/signup", signup);
