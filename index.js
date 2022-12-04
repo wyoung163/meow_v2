@@ -9,6 +9,8 @@ const upload = multer({dest: "./upload"});
 const port = 3000;
 
 app.set("view engine", "ejs");
+app.set("views", "View");
+
 
 app.use(
   bodyParser.urlencoded({
