@@ -1,21 +1,35 @@
-node {
-	def app
-	stage('Clone repository') {
-		git 'https://github.com/wyoung163/meow_v2'
-	}
-	stage('Build image') {
-		app = docker.build("choiwyoung/prbasedtest")
-	}
-	stage('Test image') {
-		app.inside {
-			sh 'npm install'
-		        sh 'node index.js'
-		}
-	}
-	stage('Push image') {
-		docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
-			app.push("$env.BUILD_NUMBER}")
-			app.push("latest")
-		}
-	}
+pipeline {
+    agent any
+    tools {nodejs "nodejs"}
+
+    stages {
+        stage('test') {
+            steps {
+                git url: 'https://github.com/wyoung163/meow_v2'
+                sh 'npm install'
+                sh 'npm run build'
+            }
+        }
+    }
 }
+// node {
+// 	def app
+// 	stage('Clone repository') {
+// 		git 'https://github.com/wyoung163/meow_v2'
+// 	}
+// 	stage('Build image') {
+// 		app = docker.build("choiwyoung/prbasedtest")
+// 	}
+// 	stage('Test image') {
+// 		app.inside {
+// 			sh 'npm install'
+// 		        sh 'node index.js'
+// 		}
+// 	}
+// 	stage('Push image') {
+// 		docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+// 			app.push("$env.BUILD_NUMBER}")
+// 			app.push("latest")
+// 		}
+// 	}
+// }
