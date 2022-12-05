@@ -1,0 +1,459 @@
+@charset "utf-8";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
+/* CSS Document */
+h1 {
+  text-align: center;
+  font-family: "Kdam Thmor Pro", sans-serif !important;
+}
+
+div.option {
+  text-align: right;
+  padding-right: 330px;
+  margin: 10px auto;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+body {
+  margin: 20px;
+  font-size: 1.5rem;
+  font-family: "Noto Sans KR", sans-serif;
+  background-color: #FFF0C2 !important;
+}
+
+div.main {
+  width: 900px;
+  height: 550px;
+  border: 1px solid #92B4EC;
+  border-radius: 2em;
+  border-width: thick;
+  padding: 40px;
+  margin: auto;
+  font-size: 1.5rem;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+div.lefttop {
+  width: 420px;
+  height: 50px;
+  border: 1px solid #92B4EC;
+  border-radius: 1.5em;
+  border-width: medium;
+  text-align: center;
+  padding-top: 10px;
+  float: left;
+  font-size: medium;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+div.leftbottom {
+  float: left;
+  text-align: center;
+}
+
+div.righttop {
+  font-size: medium;
+  float: right;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 1.5rem;
+}
+
+div.rightbottom {
+  font-size: medium;
+  float: right;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 1.8rem;
+  text-align: right;
+}
+
+div.qna {
+  overflow-y: scroll;
+  width: 900px;
+  height: 500px;
+  border: 1px solid #92B4EC;
+  border-radius: 2em;
+  border-width: thick;
+  padding: 30px;
+  margin: auto;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 1.5rem;
+}
+.qna::-webkit-scrollbar {
+  display: none;
+}
+
+div.writeqna {
+  width: 900px;
+  height: 150px;
+  border: 1px solid #92B4EC;
+  border-radius: 2em;
+  border-width: thick;
+  padding: 30px;
+  margin: auto;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 1.5rem;
+}
+
+div.wrap {
+  margin: 0 auto;
+  overflow: hidden;
+  padding-top: 10px;
+}
+
+#card #li {
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+#card .card-body {
+  position: absolute;
+  border-radius: 10%;
+  top: 200px;
+  width: 150px;
+  height: 150px;
+  padding-top: 15%;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transition: all 0.6s ease-in-out;
+  z-index: 10;
+  font-size: 13px;
+}
+
+#card #li:hover .card-body {
+  opacity: 1;
+  transform: translateY(-200px);
+}
+#card .card-body p {
+  color: #fff;
+  text-align: center;
+}
+
+#li {
+  width: 200px;
+  /* height:150px */
+}
+
+div > article {
+  float: left;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+progress {
+  appearance: none;
+}
+
+progress::-webkit-progress-bar {
+  background: #f0f0f0;
+  border-radius: 8px;
+  box-shadow: inset 3px 3px 10px #ccc;
+}
+
+progress::-webkit-progress-value {
+  border-radius: 8px;
+  background: #5492ee;
+  background: -webkit-linear-gradient(to right, #94b9f5, #5492ee);
+  background: linear-gradient(to right, #94b9f5, #5492ee);
+}
+
+#button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+#button {
+  margin: 0;
+  padding: 0.5rem 1rem;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  width: auto;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  transition: 0.5s;
+
+  padding: 7px;
+  background-color: #FFD24C;
+  border-color: transparent;
+  color: white;
+}
+
+#button:hover {
+  border : 2px solid #FFD24C;
+  background-color: white;
+  color : #FFD24C;
+  font-weight: bold;
+  box-shadow : 0 0.5em -0.4em #FFD24C;
+  transform : translateY(-0.25em);
+}
+
+#tagCont {
+  font-style: oblique;
+  font-weight: bold;
+}
+
+#shortRCont {
+  font-weight: bold;
+}
+
+#shortRSPct {
+  font-weight: bold;
+}
+
+* {
+  margin: 0;
+}
+.wrap {
+  padding: 10px;
+}
+.btn_open {
+  text-decoration: none;
+  color: white;
+  margin-right: 5px;
+  margin-left: 5px;
+  padding: 7px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  width: auto;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  transition: 0.5s;
+  background-color: #FFD24C;
+}
+.btn_open:hover {
+  border : 2px solid #FFD24C;
+  background-color: white;
+  color : #FFD24C;
+  font-weight: bold;
+  box-shadow : 0 0.5em -0.4em #FFD24C;
+  transform : translateY(-0.25em);
+}
+
+.btn_close {
+  margin: 0;
+  padding: 0.5rem 1rem;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-right: 5px;
+  margin-left: 5px;
+  text-align: center;
+  text-decoration: none;
+  width: auto;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  transition: 0.5s;
+
+  padding: 7px;
+  background-color: #FFD24C;
+  border-color: transparent;
+  color: white;
+}
+
+.btn_close:hover {
+  border : 2px solid #FFD24C;
+  background-color: white;
+  color : #FFD24C;
+  font-weight: bold;
+  box-shadow : 0 0.5em -0.4em #FFD24C;
+  transform : translateY(-0.25em);
+}
+
+a:hover {
+  color: black;
+}
+
+.pop_wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  font-size: 0;
+  text-align: center;
+}
+.pop_wrap:after {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  content: "";
+}
+.pop_wrap .pop_inner {
+  display: inline-block;
+  padding: 20px 30px;
+  background: #fff;
+  vertical-align: middle;
+  font-size: 15px;
+}
+
+/* kakao map */
+.map_wrap,
+.map_wrap * {
+  margin: 0;
+  padding: 0;
+  font-family: "Malgun Gothic", dotum, "돋움", sans-serif;
+  font-size: 12px;
+}
+.map_wrap a,
+.map_wrap a:hover,
+.map_wrap a:active {
+  color: #000;
+  text-decoration: none;
+}
+.map_wrap {
+  position: relative;
+  width: 80%;
+  height: 500px;
+}
+#menu_wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 250px;
+  margin: 10px 0 30px 10px;
+  padding: 5px;
+  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.7);
+  z-index: 1;
+  font-size: 12px;
+  border-radius: 10px;
+}
+.bg_white {
+  background: #fff;
+}
+#menu_wrap hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 2px solid #5f5f5f;
+  margin: 3px 0;
+}
+#menu_wrap .option {
+  text-align: center;
+}
+#menu_wrap .option p {
+  margin: 10px 0;
+}
+#menu_wrap .option button {
+  margin-left: 5px;
+}
+#placesList li {
+  list-style: none;
+}
+#placesList .item {
+  position: relative;
+  border-bottom: 1px solid #888;
+  overflow: hidden;
+  cursor: pointer;
+  min-height: 65px;
+}
+#placesList .item span {
+  display: block;
+  margin-top: 4px;
+}
+#placesList .item h5,
+#placesList .item .info {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+#placesList .item .info {
+  padding: 10px 0 10px 55px;
+}
+#placesList .info .gray {
+  color: #8a8a8a;
+}
+#placesList .info .jibun {
+  padding-left: 26px;
+  background: url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png)
+    no-repeat;
+}
+#placesList .info .tel {
+  color: #009900;
+}
+#placesList .item .markerbg {
+  float: left;
+  position: absolute;
+  width: 36px;
+  height: 37px;
+  margin: 10px 0 0 10px;
+  background: url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png)
+    no-repeat;
+}
+#placesList .item .marker_1 {
+  background-position: 0 -10px;
+}
+#placesList .item .marker_2 {
+  background-position: 0 -56px;
+}
+#placesList .item .marker_3 {
+  background-position: 0 -102px;
+}
+#placesList .item .marker_4 {
+  background-position: 0 -148px;
+}
+#placesList .item .marker_5 {
+  background-position: 0 -194px;
+}
+#placesList .item .marker_6 {
+  background-position: 0 -240px;
+}
+#placesList .item .marker_7 {
+  background-position: 0 -286px;
+}
+#placesList .item .marker_8 {
+  background-position: 0 -332px;
+}
+#placesList .item .marker_9 {
+  background-position: 0 -378px;
+}
+#placesList .item .marker_10 {
+  background-position: 0 -423px;
+}
+#placesList .item .marker_11 {
+  background-position: 0 -470px;
+}
+#placesList .item .marker_12 {
+  background-position: 0 -516px;
+}
+#placesList .item .marker_13 {
+  background-position: 0 -562px;
+}
+#placesList .item .marker_14 {
+  background-position: 0 -608px;
+}
+#placesList .item .marker_15 {
+  background-position: 0 -654px;
+}
+#pagination {
+  margin: 10px auto;
+  text-align: center;
+}
+#pagination a {
+  display: inline-block;
+  margin-right: 10px;
+}
+#pagination .on {
+  font-weight: bold;
+  cursor: default;
+  color: #777;
+}
