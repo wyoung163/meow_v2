@@ -9,6 +9,8 @@ const upload = multer({dest: "./upload"});
 const port = 3000;
 
 app.set("view engine", "ejs");
+app.set("views", "View");
+
 
 app.use(
   bodyParser.urlencoded({
@@ -27,6 +29,9 @@ app.use(
   })
 );
 
+//main
+const main = require("./Controller/main");
+app.use("/", main);
 //sing up
 const signup = require("./Controller/signup");
 app.get("/signup", signup);
