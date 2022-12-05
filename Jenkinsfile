@@ -1,17 +1,17 @@
 node {
 	def app
 	stage('Clone repository') {
-		git 'https://github.com/wyoung163/meow_v2'
+		git 'https://github.com/wyoung163/meow_v2.git'
+		
 	}
 	stage('Build image') {
-		app = docker.build("wyoung163/meow_v2")
+		app = docker.build("choiwyoung/prbasedtest")
 	}
 	stage('Test image') {
 		app.inside {
 			steps {
                			sh 'npm install'
 		                sh 'node index.js'
-	            }		
 		}
 	}
 	stage('Push image') {
