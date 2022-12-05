@@ -4,4 +4,4 @@ COPY package*.json /app/
 WORKDIR /app/
 RUN npm install
 COPY index.js /app/
-CMD [ "npm", "install", "&&", "node", "index.js" ]
+CMD [ "node", "index.js" ]
