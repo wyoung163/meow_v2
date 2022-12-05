@@ -8,6 +8,7 @@ node {
 	}
 	stage('Test image') {
 		app.inside {
+			sh 'cd meow_v2/'
 			sh 'npm install'
 			sh 'node index.js'
 		}
