@@ -8,8 +8,10 @@ node {
 	}
 	stage('Test image') {
 		app.inside {
-			sh 'npm install'
-			sh 'node index.js'
+			steps{
+				sh 'npm install'
+				sh 'node index.js'
+			}
 		}
 	}
 	stage('Push image') {
