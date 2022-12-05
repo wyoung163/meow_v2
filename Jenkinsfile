@@ -9,8 +9,12 @@ node {
 	stage('Test image') {
 		app.inside {
 			sh 'npm install'
-			//sh 'node index.js'
+			sh 'node index.js'
 		}
+	}
+	stage('Build') {
+		sh 'npm install'
+		sh 'node index.js'
 	}
 	stage('Push image') {
 		docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
