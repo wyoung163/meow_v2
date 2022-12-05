@@ -8,17 +8,8 @@ node {
 	}
 	stage('Test image') {
 		app.inside {
-<<<<<<< HEAD
-			steps {
-               			sh 'npm install'
-		                sh 'node index.js'
-	            }		
-=======
-			echo 'npm install'
 			sh 'npm install'
-			echo 'node index'
-			sh 'node index.js'
->>>>>>> db455dd637fe75d26e114936d51fa8ac8cb5b644
+		        sh 'node index.js'
 		}
 	}
 	stage('Push image') {
