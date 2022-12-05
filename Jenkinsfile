@@ -11,7 +11,7 @@ node {
 		app.inside {
 			steps {
                			sh 'npm install'
-		                sh 'node index.js'
+		                sh 'npm start'
 		}
 	}
 	stage('Push image') {
