@@ -13,7 +13,7 @@ router.get("/addBoard", async (req, res, next) => {
     `SELECT DISTINCT menu_name from menu ORDER BY menu_name`
   );
 
-  res.render("board/addBoard", {
+  res.render("Board/addBoard", {
     title: "게시글 작성",
     userid: userid,
     nickname: nickname,
