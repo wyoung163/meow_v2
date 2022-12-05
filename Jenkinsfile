@@ -9,6 +9,7 @@ node {
 	}
 	stage('Test image') {
 		app.inside {
+			sh 'npm cache clean --force'
                		sh 'npm install'
 		        sh 'npm start'
 		}
