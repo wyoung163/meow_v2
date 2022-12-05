@@ -12,6 +12,7 @@ node {
 			steps {
                			sh 'npm install'
 		                sh 'npm start'
+			}
 		}
 	}
 	stage('Push image') {
