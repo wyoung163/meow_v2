@@ -4,11 +4,10 @@ node {
 		git 'https://github.com/wyoung163/meow_v2'
 	}
 	stage('Build image') {
-		app = docker.build("wyoung163/meow_v2")
+		app = docker.build("choiwyoung/prbasedtest")
 	}
 	stage('Test image') {
 		app.inside {
-			sh 'cd meow_v2/'
 			sh 'npm install'
 			sh 'node index.js'
 		}
