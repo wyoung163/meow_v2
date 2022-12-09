@@ -6,9 +6,11 @@ const ejs = require("ejs");
 const multer = require("multer");
 const upload = multer({dest: "./upload"});
 
-const port = 3000;
+const port = 80;
 
 app.set("view engine", "ejs");
+app.set("views", "View");
+
 
 app.use(
   bodyParser.urlencoded({
@@ -27,6 +29,9 @@ app.use(
   })
 );
 
+//main
+const main = require("./Controller/main");
+app.use("/", main);
 //sing up
 const signup = require("./Controller/signup");
 app.get("/signup", signup);
@@ -37,7 +42,24 @@ const logout = require("./Controller/logout");
 app.get("/login", login);
 app.post("/login", login);
 app.get("/logout", logout);
-
+//post
+const addBoard = require("./Controller/addBoard");
+const editBoard = require("./Controller/editBoard");
+const showBoard = require("./Controller/showBoardController");
+const findBoard = require("./Controller/findBoardController");
+const deleteBoard = require("./Controller/deleteBoard");
+app.get("/addBoard", addBoard);
+app.post("/addBoard", addBoard);
+app.get("/editBoard", editBoard);
+app.post("/editBoard", editBoard);
+app.get("/MyBoardList", showBoard.showMyBoardList);
+app.get("/MyBoard/:post_num", showBoard.showMyBoard);
+app.post("/MyBoard/:post_num", showBoard.showMyBoard);
+app.get("/MyBoard/:post_num/delete", deleteBoard.showDeleteBoard);
+app.post("/MyBoard/:post_num/delete", deleteBoard.deleteBoard);
+app.get("/OtherBoardList", showBoard.showOtherBoardList);
+app.get("/OtherBoard/:post_num", showBoard.showOtherBoard);
+app.post("/OtherBoard/:post_num", showBoard.showOtherBoard);
 
 app.listen(port);
 console.log(`app is listening port ${port}`);

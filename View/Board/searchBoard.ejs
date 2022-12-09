@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <link href="/css/Board.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+        <link
+      href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap"
+      rel="stylesheet"
+    />
+        <title><%= title %></title>
+        <%- include('../partials/head') %>
+    </head>
+
+    <body>
+        <title><%= title %></title>
+
+        <% if (userid == undefined) { %>
+        <%- include('../partials/loginNav') %>
+        <% } else { %>
+        <%- include('../partials/nav') %>
+        <% } %>
+    <h1><a href="/" style="text-decoration: none; color: black">MEOW</a></h1>
+
+        <span id="place" style="padding-left: 20px; font-weight: 600; font-size: 1.5rem;">
+            "<%= search_word%>" 검색 결과 입니다.
+        </span><br><br>
+        <div class="wrap">
+            <div id="card">
+            <% for(var i = 0; i<postNum.length; i++) { %>
+                <input type="hidden" name="post_num"  value="<%=postNum[i]%>">
+                <% if( userid == undefined) { %>
+                    <article>
+                        <div id="li">
+                        <img src="<%=placePhoto[i]%>" style="width:150px; height:150px; object-fit: cover; border-radius: 10%;"/>
+                        <div class="card-body" >
+                            <p class="card-text"> <br> <%=placeName[i]%> <br><br>
+                            <a href = "/Otherboard/<%=postNum[i]%>" style="text-decoration:none; color:white">구경하러가기</a></p>
+                              <br><br>
+                          </div>
+                        </div>
+                        </article><% } else {%>
+                        <% if (usersId[i] == userid) { %>
+                    <article>
+                        <div id="li">
+                        <img src="<%=placePhoto[i]%>"  style="width:150px; height:150px; object-fit: cover; border-radius: 10%;"/>
+                        <div class="card-body" >
+                            <p class="card-text"> <br> <%=placeName[i]%> <br><br>
+                            <a href = "/Myboard/<%=postNum[i]%>/" style="text-decoration:none; color:white">구경하러가기</a></p>
+                              <br><br>
+                          </div></div></article>
+                    <% } else {%>
+                    <article>
+                        <div id="li">
+                            <img src="<%=placePhoto[i]%>" style="width:150px; height:150px; object-fit: cover; border-radius: 10%;"/>
+                        <div class="card-body" >
+                            <p class="card-text"> <br> <%=placeName[i]%> <br><br>
+                            <a href = "/Otherboard/<%=postNum[i]%>/" style="text-decoration:none; color:white">구경하러가기</a></p>
+                              <br><br>
+                          </div></div></article>
+                    <% } %><% } %>
+                    <% } %>
+                </div>
+            </div>
+    </body>
+</html>

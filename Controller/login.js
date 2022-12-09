@@ -5,7 +5,7 @@ const pool = require("../db.js");
 const bcrypt = require("bcrypt");
 
 router.get("/login", async (req, res, next) => {
-  res.render("login", {title: "로그인"});
+  res.render("User/login", {title: "로그인"});
 });
 
 router.post("/login", async (req, res, next) => {

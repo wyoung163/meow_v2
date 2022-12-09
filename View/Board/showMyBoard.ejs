@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
+        <link href="/css/Board.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+        <title><%= title %></title>
+        <%- include('../partials/head') %>
+        <script>
+            var divdiv = document.getElementById("qna"); divdiv.scrollTop = divdiv.scrollHeight;
+        </script>
+    </head>
+    <body>
+        <%- include('../partials/nav') %>
+        <h1><a href="/" style="text-decoration: none; color: black">MEOW</a></h1>
+
+        <div class="option">
+            <form action="/MyBoardList" method="get" float="right" style="display: inline-block"> 
+                <input type="hidden" name="post_num" value="<%=post_num%>">
+                     <button type="submit" class ="myBList" id="button"><i class="bi bi-sticky-fill"> </i> 내 다른 게시글 보기</button>
+            </form>
+            <a href="#pop_info_1" style="text-decoration:none;" class="btn_open">
+               <i class="bi bi-pencil-square"></i>게시글 수정</a>
+            <!-- 수정팝업 -->
+            <div id="pop_info_1" class="pop_wrap" style="display:none;">
+                <div class="pop_inner" style="border-radius: 5px;">
+                    <p class="dsc">게시글을 수정하면 사진 파일을 다시 올려야합니다</p><br>
+                    <p class="dsc">게시글을 수정하시겠습니까?</p>
+                    <form action = "/editBoard" method = "get">
+                        <input type="hidden" name="post_num" value="<%=post_num%>">
+                        <input type="submit" id="button" value="수정" style="float:right;">
+                    </form>
+                    <button type="button" class="btn_close" style="float:right;">닫기</button>
+                    </div>
+                </div>
+            <script>
+                var target = document.querySelectorAll('.btn_open');
+                var btnPopClose = document.querySelectorAll('.pop_wrap .btn_close');
+                var targetID;  // 버튼 클릭시 버튼에 해당하는 팝업의 id값 담는 변수
+  
+                // 팝업 열기
+                for(var i = 0; i < target.length; i++){
+                    target[i].addEventListener('click', function(){
+                    targetID = this.getAttribute('href');
+                    document.querySelector(targetID).style.display = 'block';
+                    });
+                }
+                // 팝업 닫기
+                for(var j = 0; j < target.length; j++){
+                    btnPopClose[j].addEventListener('click', function(){
+                    this.parentNode.parentNode.style.display = 'none';
+                    });
+                }
+            </script>
+            <form action = "/MyBoard/:post_num/delete" method = "post"  float="right" style="display: inline-block">
+                <input type="hidden" name="post_num"  value="<%=post_num%>">
+                <button type="submit" class ="editB" id="button"><i class="bi bi-sticky-fill"> </i> 게시글 삭제</button>
+            </form>
+        </div>
+        <div class="main">
+            <span id="nickName"><a href="/profile/<%=userid%>" style=" color:black; text-decoration: none; "><%=nickname%> 님</a></span><br><br>
+        <div class="lefttop">
+            <span id="place"><i class="bi bi-shop-window"></i> <%=result.place_name%> / <%=result.place_loc%></span>
+            <div class="leftbottom">
+                <br><br>
+                <span id="photo"><img src="<%= result.receipt_photo%> " style="width:200px; height:200px; object-fit: cover; border-radius: 10%;"/> 
+                <img src="<%= result.place_photo%> " style="width:200px; height:200px; object-fit: cover; border-radius: 10%;"/></span>
+                <br><br>
+                <span id="tagCont">#<%=result.tag_cont%></span>
+                <br><br>
+            </div>
+            <div class="lefttop">
+            <span id="menu"><i class="bi bi-hand-thumbs-up"></i> <%=result.menu_name%> : <%=result.price%>원</span>
+            </div>
+        </div>
+        <div class="righttop">
+            <span id="shortRCont"></span>장소 만족도 <progress value="<%=result.place_satisfy%>" max="100"></progress> <%=result.place_satisfy%></span>
+            <br><br>
+            #1<br>
+            <span id="shortRCont"><i class="bi bi-chat-left-heart"></i> <%=result.review_cont1%></span><br>
+            <% if (shortRSPct1 > 0) { %>
+                <span id="shortRSPct"><progress value="<%=shortRSPct1%>" max="100"></progress>  <%=shortRSPct1%></span>
+            <% } else {%>
+                    <span id="shortRSPct"><progress value="<%=shortRSPct1%>" max="100"></progress> 0</span>
+                <% } %>
+            <br><br>
+            <% if (result.review_cont2 != '') { %>
+            #2<br>
+            <span id="shortRCont"><i class="bi bi-chat-left-heart"></i> <%=result.review_cont2%></span><br>
+                <% if (shortRSPct2 > 0) { %>
+                    <span id="shortRSPct"><progress value="<%=shortRSPct2%>" max="100"></progress>  <%=shortRSPct2%></span>
+                <% } else {%>
+                        <span id="shortRSPct"><progress value="<%=shortRSPct2%>" max="100"></progress> 0</span>
+                    <% } %>
+            <% } %>
+            <br><br>
+            <% if (result.review_cont3 != '') { %>
+            #3<br>
+            <span id="shortRCont"><i class="bi bi-chat-left-heart"></i> <%=result.review_cont3%></span><br>
+                <% if (shortRSPct3 > 0) { %>
+                     <span id="shortRSPct"><progress value="<%shortRSPct3%>" max="100"></progress>  <%=shortRSPct3%></span>
+                <% } else {%>
+                        <span id="shortRSPct"><progress value="<%=shortRSPct3%>" max="100"></progress> 0</span>
+                    <% } %>
+            <% } %>
+        </div>
+        <br><br><br>
+        </div>
+        <h1><%= title2 %></h1>
+            <div class="qna">
+                <% for(var i = 0; i<qna_cont.length; i++) { %>
+                <form action = "/qna/A" method = "post">
+                    <input type="hidden" name="post_num"  value="<%=post_num%>">
+                    <input type="hidden" name="qna_num" value="<%=qna_num[i]%>">
+                    <span id="qna_user"><i class="bi bi-person"></i> <%=users_id[i]%></span>
+                    <br>
+                    <span id="qna_cont">Q: <%=qna_cont[i]%></span>
+                    <br>
+                    <tr height="100">
+                        A: <input type="text" name="qna_ans" maxlength=30 value="<%=qna_ans[i]%>">                     
+                    </tr>
+                    <br>
+                    <button type="submit" id="button" value="저장"><i class="bi bi-check-square-fill"> </i> 저장</button> &nbsp;
+                    <button type="submit" id="button" value="저장"><i class="bi bi-check-square"> </i> 수정</button>
+                    <br><br>
+                </form>
+                <% } %>
+            </div>
+        <a href="/"><i class="bi bi-backspace fs-100"></i></a>
+        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=services"></script>
+    </body>
+</html>

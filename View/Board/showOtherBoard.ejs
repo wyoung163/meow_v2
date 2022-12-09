@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
+        <link href="/css/Board.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+        <title><%= title %></title>
+        <%- include('../partials/head') %>
+        <script>
+            var divdiv = document.getElementById("qna"); divdiv.scrollTop = divdiv.scrollHeight;
+        </script>
+    </head>
+    <body>
+        <% if (requestUser == undefined) { %>
+        <%- include('../partials/loginNav') %>
+        <% } else { %>
+        <%- include('../partials/nav') %>
+        <% } %>
+        <h1><a href="/" style="text-decoration: none; color: black">MEOW</a></h1>
+        <div class="option">
+            <% if (requestUser != undefined) { %>
+            <form action="/scrap" method="post" float="left" style="display: inline-block">
+                <input type="hidden" name="post_num"  value="<%=post_num%>">
+                <% if (scrap) { %>
+                     <button type="submit" class ="scrap" id="button"><i class="bi bi-bookmark-heart"> </i> 스크랩 </button>
+                <% } else { %>
+                    <button type="submit" class ="scrap" id="button"><i class="bi bi-bookmark-plus-fill"> </i> 스크랩 취소</button>
+                <% } %>
+                &nbsp;&nbsp;
+            </form>
+            <% } %>
+            <form action="/otherBoardList" method="get" float="right" style="display: inline-block">
+                <input type="hidden" name="post_num" value="<%=post_num%>">
+                     <button type="submit" class ="otherBList" id="button"><i class="bi bi-grid-3x3-gap-fill"> </i> 다른 게시글 보기</button>
+            </form>
+        </div>
+        <div class="main">
+            <span id="post_user_nickName"><a href="/profile/<%=post_userid%>" style=" color:black; text-decoration: none; "><%=pu_nickname%> 님</a></span>
+            <br><br>
+        <div class="lefttop">
+            <span id="place"><i class="bi bi-shop-window"></i> <%=result.place_name%> / <%=result.place_loc%></span>
+            <div class="leftbottom">
+                <br><br>
+                <span id="photo"><img src="<%= result.receipt_photo%> " style="width:200px; height:200px; object-fit: cover; border-radius: 10%;"/> 
+                <img src="<%= result.place_photo%> " style="width:200px; height:200px; object-fit: cover; border-radius: 10%;"/></span>
+                <br><br>
+                <span id="tagCont">#<%=result.tag_cont%></span>
+                <br><br>
+            </div>
+            <div class="lefttop">
+            <span id="menu"><i class="bi bi-hand-thumbs-up"></i> <%=result.menu_name%> : <%=result.price%>원</span>
+            </div>
+        </div>
+        <div class="righttop">
+            <span id="shortRCont">장소 만족도 <progress value="<%=result.place_satisfy%>" max="100"></progress> <%=result.place_satisfy%></span>
+            <br><br><br>
+            <form action = "/satisfaction" method = "post">
+                <input type="hidden" name="review_num"  value="<%=result.review_num%>">
+                <input type="hidden" name="post_num"  value="<%=post_num%>">
+                #1<br>
+                <span id="shortRCont"><i class="bi bi-chat-left-heart"></i> <%=result.review_cont1%></span><br>
+                <% if (shortRSPct1 > 0) { %>
+                    <span id="shortRSPct"><progress value="<%=shortRSPct1%>" max="100"></progress>  <%=shortRSPct1%></span>
+                <% } else {%>
+                        <span id="shortRSPct"><progress value="<%=shortRSPct1%>" max="100"></progress> 0</span>
+                    <% } %>
+                    <% if (requestUser != undefined) { %>
+                <br><input type="text" name="mys_pct1" size="10"  maxlength="15" placeholder="입력 예시) 80">
+                <button type="submit" id="button" value="저장"><i class="bi bi-check-square-fill"> </i> 저장</button>
+                <% } %>
+                <br><br>
+                <% if (result.review_cont2 != '') { %>
+                #2<br>
+                <span id="shortRCont"><i class="bi bi-chat-left-heart"></i> <%=result.review_cont2%></span><br>
+                <% if (shortRSPct2 > 0) { %>
+                    <span id="shortRSPct"><progress value="<%=shortRSPct2%>" max="100"></progress>  <%=shortRSPct2%></span>
+                <% } else {%>
+                        <span id="shortRSPct"><progress value="<%=shortRSPct2%>" max="100"></progress> 0</span>
+                    <% } %>
+                    <% if (requestUser != undefined) { %>
+                <br><input type="text" name="mys_pct2" size="10"  maxlength="15" placeholder="입력 예시) 80">
+                <button type="submit" id="button" value="저장"><i class="bi bi-check-square-fill"> </i> 저장</button>
+                <% } %><% } %>
+                <br><br>
+                <% if (result.review_cont3 != '') { %>
+                #3<br> 
+                <span id="shortRCont"><i class="bi bi-chat-left-heart"></i> <%=result.review_cont3%></span><br>
+                <% if (shortRSPct3 > 0) { %>
+                    <span id="shortRSPct"><progress value="<%=shortRSPct3%>" max="100"></progress> <%=shortRSPct3%></span>
+               <% } else {%>
+                       <span id="shortRSPct"><progress value="<%=shortRSPct3%>" max="100"></progress> 0</span>
+                   <% } %>
+                   <% if (requestUser != undefined) { %>
+                <br><input type="text" name="mys_pct3" size="10"  maxlength="15" placeholder="입력 예시) 80"> 
+                <button type="submit" id="button" value="저장"><i class="bi bi-check-square-fill"> </i> 저장</button>
+                <% } %><% } %>
+                <br><br>
+            </form>
+        </div>
+        </div>
+        <br><br>
+        <h1><%= title2 %></h1><br>
+        <% if (requestUser != undefined) { %>
+        <form action = "/qna/Q" method = "post">
+            <div class="writeqna">
+                <input type="hidden" name="user_id"  value="<%=userid%>">
+                <tr>
+                <td>
+                    <input type="hidden" name="post_num"  value="<%=post_num%>">
+                    <span id="qna_user"><i class="bi bi-person"></i> <%=userid%></span><br>
+                </td>
+                </tr>
+                <tr>
+                <td>
+                    Q: <input type="text" name="qna_cont" size="50"  maxlength="50">
+                </td>
+                </tr>
+                <tr>
+                <td>
+                    <button type="submit" id="button" value="저장"><i class="bi bi-check-square-fill"> </i> 저장</button>
+                    &nbsp;&nbsp;
+                    <button type="reset" id="button" value="취소"><i class="bi bi-x-square-fill"> </i> 취소</button>
+                </td>
+                </tr>
+            </div>
+        </table>
+        <br><br>
+        </form>
+        <% } %>
+            <div class="qna">
+                <input type="hidden" name="user_id"  value="<%=userid%>">
+                <% for(var i = 0; i<myqna_cont.length; i++) { %>
+                    <form action = "/qna/delete" method = "post">
+                        <input type="hidden" name="post_num"  value="<%=post_num%>">
+                        <input type="hidden" name="qna_num" value="<%=myqna_num[i]%>">
+                        <span id="myqna_user"><i class="bi bi-person"></i> <%=userid%></span>
+                        <br>
+                        <span id="myqna_cont">Q: <%=myqna_cont[i]%></span>
+                        <br>
+                        <span id="myqna_ans">A: <%=myqna_ans[i]%></span>
+                        <br>
+                        </i><button type="submit" id="button" value="삭제"><i class="bi bi-x-square-fill"> </i> 삭제</button>
+                        <br><br>
+                     </form>
+                <% } %>
+                <% for(var i = 0; i<qna_cont.length; i++) { %>
+                    <input type="hidden" name="qna_num" value="<%=qna_num[i]%>">
+                    <span id="qna_user">ID : <%= users_id[i] %></span>
+                    <br>
+                    <span id="qna_cont">Q: <%=qna_cont[i]%></span>
+                    <br>
+                    <span id="qna_ans"> A: <%=qna_ans[i]%></span>
+                    <br><br>
+                <% } %>
+            </div>
+    </body>
+</html>
