@@ -5,7 +5,7 @@ const pool = require("../db.js");
 const bcrypt = require("bcrypt");
 
 router.get("/signup", async (req, res, next) => {
-  res.render("User/signup", {title: "회원가입"});
+  res.render("User/signUp", {title: "회원가입"});
 });
 
 router.post("/signup", async (req, res, next) => {
