@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: meow
+  name: prbasedtest
   labels:
-    app: meow
+    app: prbasedtest
 spec:
   replicas: 3
   strategy:
     type: Recreate
   selector:
     matchLabels:
-      app: meow
+      app: prbasedtest
   template:
     metadata:
       labels:
-        app: meow
-        tier: meow
+        app: prbasedtest
+        tier: prbasedtest
     spec:
       containers:
       - name: meow
@@ -23,19 +23,19 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 5000
-          name: meow
+          name: prbasedtest
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: meow
+  name: prbasedtest
   labels:
-    app: meow
+    app: prbasedtest
 spec:
   ports:
   - port: 80
     targetPort: 5000
   selector:
-    app: meow
-    tier: meow
+    app: prbasedtest
+    tier: prbasedtest
   type: LoadBalancer
