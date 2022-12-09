@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: meow
+  labels:
+    app: meow
+spec:
+  replicas: 3
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: meow
+  template:
+    metadata:
+      labels:
+        app: meow
+        tier: meow
+    spec:
+      containers:
+      - name: meow
+        image: choiwyoung/prbasedtest:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
+          name: meow
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: meow
+  labels:
+    app: meow
+spec:
+  ports:
+  - port: 80
+    targetPort: 5000
+  selector:
+    app: meow
+    tier: meow
+  type: LoadBalancer
