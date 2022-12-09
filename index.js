@@ -6,7 +6,7 @@ const ejs = require("ejs");
 const multer = require("multer");
 const upload = multer({dest: "./upload"});
 
-const port = 5000;
+const port = 80;
 
 app.set("view engine", "ejs");
 app.set("views", "View");
