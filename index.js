@@ -61,5 +61,5 @@ app.get("/OtherBoardList", showBoard.showOtherBoardList);
 app.get("/OtherBoard/:post_num", showBoard.showOtherBoard);
 app.post("/OtherBoard/:post_num", showBoard.showOtherBoard);
 
-//app.listen(port);
-//console.log(`app is listening port ${port}`);
+app.listen(port);
+console.log(`app is listening port ${port}`);
