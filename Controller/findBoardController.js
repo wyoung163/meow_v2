@@ -6,7 +6,7 @@ exports.findThroughPlace = async (req, res) => {
   const userid = req.session.user["userid"];
   const nickname = req.session.user["nickname"];
 
-  res.render("board/findBoard", {
+  res.render("Board/findBoard", {
     title: "장소로 찾는 게시글",
     userid: userid,
     nickname: nickname,
