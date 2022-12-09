@@ -3,7 +3,7 @@ ENV NODE_ENV="production"
 RUN apt-get update && mkdir -p /app
 
 # Copy app's source code to the /app directory
-COPY . /app
+COPY ./ /app
 
 # The application's directory will be the working directory
 WORKDIR /app
