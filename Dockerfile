@@ -1,13 +1,6 @@
-#FROM node:16.13.1
-#RUN apt-get update && mkdir -p /app
-#COPY package*.json /app/
-#WORKDIR /app/
-#RUN npm install
-#COPY index.js /app/
-#CMD [ "npm", "start" ]
-
 FROM bitnami/node:9 as builder
 ENV NODE_ENV="production"
+RUN apt-get update && mkdir -p /app
 
 # Copy app's source code to the /app directory
 COPY . /app
