@@ -6,7 +6,7 @@ const ejs = require("ejs");
 const multer = require("multer");
 const upload = multer({dest: "./upload"});
 
-const port = 3000;
+const port = 5000;
 
 app.set("view engine", "ejs");
 app.set("views", "View");
@@ -61,5 +61,5 @@ app.get("/OtherBoardList", showBoard.showOtherBoardList);
 app.get("/OtherBoard/:post_num", showBoard.showOtherBoard);
 app.post("/OtherBoard/:post_num", showBoard.showOtherBoard);
 
-app.listen(port);
-console.log(`app is listening port ${port}`);
+//app.listen(port);
+//console.log(`app is listening port ${port}`);
