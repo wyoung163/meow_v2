@@ -2,3 +2,4 @@ node_modules
 
 # Database Information in .env
 .env
+mysql_secret.yaml
