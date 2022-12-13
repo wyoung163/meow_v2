@@ -5,13 +5,13 @@ metadata:
   labels:
     type: local
 spec:
-  storageClassName: mnt-client
+  storageClassName: nfs-client
   capacity:
     storage: 20Gi
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/mnt"
+    path: "/var/lib/data"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
