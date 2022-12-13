@@ -6,7 +6,7 @@ const ejs = require("ejs");
 const multer = require("multer");
 const upload = multer({dest: "./upload"});
 
-const port = 80;
+const port = 5000;
 
 app.set("view engine", "ejs");
 app.set("views", "View");
@@ -42,6 +42,15 @@ const logout = require("./Controller/logout");
 app.get("/login", login);
 app.post("/login", login);
 app.get("/logout", logout);
+//profile
+const profile = require("./Controller/profile");
+const addProfile = require("./Controller/addProfile");
+const editProfile = require("./Controller/editProfile");
+app.get("/profile/:userid", profile);
+app.get("/addProfile", addProfile);
+app.post("/addProfile", addProfile);
+app.get("/editProfile", editProfile);
+app.post("/editProfile", editProfile);
 //post
 const addBoard = require("./Controller/addBoard");
 const editBoard = require("./Controller/editBoard");
