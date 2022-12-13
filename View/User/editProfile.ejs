@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link
+        href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap"
+        rel="stylesheet"
+        />
+        <link href="/css/editProfile.css" rel="stylesheet" />
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css"
+        />
+        <title><%= title %></title>
+        <%- include('../partials/head') %>
+    </head>
+
+    <body>
+      <%- include('../partials/navProfile') %>
+      <header><a href="/" style="color:#92B4EC; text-decoration: none; font-weight: bold">Meow</a></header>
+      <form action="/editProfile" method="post" className="inputField" id="searchForm">
+        <div class="top">
+            <div class="info">
+              <span id="home_input" style="font-weight:bold;">[거주지]
+                <input type="text" style="width:300px;" name="home" id="home" value="<%=row.home%>" placeholder="거주지(시) 입력">&nbsp;&nbsp;
+                <label><input type="checkbox" name="delHome" id="delHome" onclick="checkHome(this)">거주지 삭제</label>
+              </span><br /><br />
+              <span id="intro" id="intro_input" style="font-weight:bold;">[자기소개]
+                <input type="text"style="width:700px;" name="introduction" id="introduction" value="<%=row.introduction%>" placeholder="소개 입력">&nbsp;&nbsp;
+                <label><input type="checkbox" name="delIntro" id="delIntro" onclick="checkIntro(this)">자기소개 삭제</label>
+              </span>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="edit">
+          <a href="/" style="color:black; text-decoration: none; font-weight: bold"><i class="bi bi-backspace fs-100"></i></a>
+          &nbsp;&nbsp;
+          <button type="submit" id="addProfile" style="display: inline-block">완료</button>
+          <button type="reset" style="display: inline-block">초기화</button>
+        </div>
+      </form>
+
+      <script>
+        // input없이 submit했을 때 오류 창
+        let sf=document.getElementById("searchForm");
+        sf.addEventListener("submit", function(e) {
+            let homeEle = document.getElementById("home");
+            let introEle = document.getElementById("introduction");
+            if(homeEle.disabled==false && introEle.disabled==false) {
+                if(homeEle.value.length==0 && introEle.value.length==0) {
+                    alert('Please fill out the form!');
+                    e.preventDefault();
+                }
+            }
+        });
+        
+        // 체크박스 선택 여부
+        function checkHome(checkbox) {
+            const textbox_elem = document.getElementById("home");
+            textbox_elem.disabled = checkbox.checked ? true : false;
+            if(textbox_elem.disabled) textbox_elem.value = null;
+            else textbox_elem.focus();
+        }
+
+        function checkIntro(checkbox) {
+            const textbox_elem = document.getElementById("introduction");
+            textbox_elem.disabled = checkbox.checked ? true : false;
+            if(textbox_elem.disabled) textbox_elem.value = null;
+            else textbox_elem.focus();
+        }
+      </script>
+      <br>
+    </body>
+</html>
