@@ -42,6 +42,15 @@ const logout = require("./Controller/logout");
 app.get("/login", login);
 app.post("/login", login);
 app.get("/logout", logout);
+//profile
+const profile = require("./Controller/profile");
+const addProfile = require("./Controller/addProfile");
+const editProfile = require("./Controller/editProfile");
+app.get("/profile/:userid", profile);
+app.get("/addProfile", addProfile);
+app.post("/addProfile", addProfile);
+app.get("/editProfile", editProfile);
+app.post("/editProfile", editProfile);
 //post
 const addBoard = require("./Controller/addBoard");
 const editBoard = require("./Controller/editBoard");
@@ -60,6 +69,10 @@ app.post("/MyBoard/:post_num/delete", deleteBoard.deleteBoard);
 app.get("/OtherBoardList", showBoard.showOtherBoardList);
 app.get("/OtherBoard/:post_num", showBoard.showOtherBoard);
 app.post("/OtherBoard/:post_num", showBoard.showOtherBoard);
+//tag
+const addTag = require("./Controller/tag");
+app.get("/addTag", addTag);
+app.post("/addTag", addTag);
 
 app.listen(port);
 console.log(`app is listening port ${port}`);
