@@ -10,7 +10,7 @@ spec:
   clusterIP: None
 ---
 apiVersion: apps/v1
-kind: Statefulset
+kind: StatefulSet
 metadata:
   name: mysql-statefulset
 spec:
