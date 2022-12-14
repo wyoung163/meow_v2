@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title><%= title %></title>
+    <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
+    <link href="/css/withdraw.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+  <div class="delete_con">
+    <form action="/withdraw" method="post">
+      <input type="hidden" name="userid" value="<%=userid%>" />
+      <p>Enter Password</p>
+      <input type="password" name="password" size="20" maxlength="15" /></br>
+      <input type="submit" class="button" value="Delete" />
+    <input type="reset" class="button" value="Cancel" /></br>
+      <a href="/">뒤로가기</a>
+    </form>
+   </div>
+  </body>
+</html>
