@@ -5,16 +5,14 @@ metadata:
 spec:
   selector:
     app: mysql
-  type: NodePort
   ports:
-  - protocol: TCP
-    port: 3306
-    nodePort: 31002
+  - port: 3306
+  clusterIP: None
 ---
 apiVersion: apps/v1
-kind: Deployment
+kind: Statefulset
 metadata:
-  name: mysql-deployment
+  name: mysql-statefulset
 spec:
   selector:
     matchLabels:
@@ -69,6 +67,12 @@ spec:
           readOnly: true
         - name: mysql-persistent-storage
           mountPath: /var/lib/mysql
+          subPath: data
+        livenessProbe:
+          exec:
+            command: ["mysqladmin","-p$MYSQL_ROOT_PASSWORD","ping"]
+          initialDelaySeconds: 60
+          timeoutSeconds: 10
       volumes:
         - name: mysql-config
           configMap:
