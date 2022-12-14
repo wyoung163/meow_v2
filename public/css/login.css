@@ -1,0 +1,100 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+  background-color: #FFF0C2;
+}
+
+.login_con {
+  text-align: center;
+  margin: auto;
+  margin-top: 225px;
+  width: 350px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 2px solid #92B4EC;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.logo {
+  font-family: 'Kdam Thmor Pro', sans-serif;
+  color: #92B4EC;
+  text-transform : uppercase;
+  letter-spacing :10px;
+  font-size : 40px;
+}
+
+.input-box {
+  position: relative;
+  margin: 10px 0;
+}
+
+.input-box > input {
+  background: transparent;
+  border: none;
+  border-bottom: solid 2px #92B4EC;
+  padding: 20px 0px 5px 0px;
+  font-size: 14pt;
+  width: 100%;
+}
+
+input::placeholder {
+  color: transparent;
+}
+
+input:placeholder-shown + label {
+  color: #aaa;
+  font-size: 14pt;
+  top: 15px;
+}
+
+#loginBtn {
+  width: 40%;
+  padding : 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #FFD24C;
+  border-color: transparent;
+  border-radius : 5px;
+  color: white;
+  font-family: 'Kdam Thmor Pro', sans-serif;
+}
+
+#loginBtn:hover {
+  border : 2px solid #FFD24C;
+  background-color:white;
+  color : #FFD24C;
+  font-weight: bold;
+  box-shadow : 0 0.5em -0.4em #FFD24C;
+  transform : translateY(-0.25em);
+}
+
+input:focus + label,
+label {
+  color: #8aa1a1;
+  font-size: 10pt;
+  pointer-events: none;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+}
+
+input:focus,
+input:not(:placeholder-shown) {
+  border-bottom: solid 1px #8aa1a1;
+  outline: none;
+}
+
+a {
+  text-decoration-line: none;
+  font-size: 11pt;
+  font-weight: bold;
+  color: #92B4EC;
+}

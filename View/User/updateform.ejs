@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title><%= title %></title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap"
+      rel="stylesheet"
+    />
+    <link href="/css/updateUser.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css"
+    />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <div class="update_con">
+      <form action="/edit" method="post">
+        <p class="input">ID</p>
+        <input
+          type="text"
+          name="userid"
+          id="userid"
+          size="60"
+          readonly="readonly"
+          value="<%=row.user_id%>"
+        />
+        <p class="input">Name</p>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          size="60"
+          value="<%=row.name%>"
+        />
+        <p class="input">NickName</p>
+        <input
+          type="text"
+          name="nickname"
+          id="nickname"
+          size="60"
+          value="<%=row.nickname%>"
+        />
+        <p class="input">Password</p>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          size="60"
+          readonly="readonly"
+          value="<%=row.password%>"
+        />
+        <p class="input">Password Check</p>
+        <input type="text" name="confirm_pwd" id="confirm_pwd" size="60" />
+        <p class="input">Input New Password</p>
+        <input
+          type="text"
+          name="new_pwd"
+          id="new_pwd"
+          size="60"
+          placeholder="선택사항"
+        />
+        <p class="input">Age</p>
+        <input type="radio" name="age" id="age1" value="10" <%=(row.age ==
+        '10')? checked="checked" : ""%>>10대 <input type="radio" name="age"
+        id="age2" value="20" <%=(row.age == '20')? checked="checked" : ""%>>20대
+        <input type="radio" name="age" id="age3" value="30" <%=(row.age ==
+        '30')? checked="checked" : ""%>>30대 <input type="radio" name="age"
+        id="age4" value="40" <%=(row.age == '40')? checked="checked" : ""%>>40대
+        <input type="radio" name="age" id="age5" value="50" <%=(row.age ==
+        '50')? checked="checked" : ""%>>50대 <input type="radio" name="age"
+        id="age6" value="60" <%=(row.age == '60')? checked="checked" : ""%>>60대
+        <p class="input">Job</p>
+        <input
+          type="text"
+          name="job"
+          id="new_job"
+          size="60"
+          value="<%=row.job%>"
+        />
+        <p class="input">Address</p>
+        <input
+          type="text"
+          name="home"
+          id="home"
+          size="60"
+          value="<%=row.home%>"
+          placeholder="시군구로 입력 (예) 파주시"
+        />
+        <p class="input">Introduction</p>
+        <input
+          type="text"
+          name="introduction"
+          id="introduction"
+          size="60"
+          rows="3"
+          value="<%=row.introduction%>"
+        />
+        <br />
+        <input type="submit" id="button" value="Edit" />
+        <input type="reset" id="button" value="Cancel" />
+        &nbsp;&nbsp; <a href="/"><i class="bi bi-backspace fs-100"></i></a>
+      </form>
+    </div>
+  </body>
+</html>

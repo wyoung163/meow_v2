@@ -1,0 +1,65 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+  background-color: #FFF0C2 !important;
+}
+ 
+h1 {
+  font-family: 'Kdam Thmor Pro', sans-serif;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #92B4EC;
+}
+
+.delete_con {
+  color: #92B4EC;
+  font-family: 'Kdam Thmor Pro', sans-serif;
+  font-weight: bold;
+  text-align: center;
+  margin: auto;
+  margin-top: 30px;
+  width: 300px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 2px solid #92B4EC;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.button {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 0.5rem 1rem;
+  font-family: 'Kdam Thmor Pro', sans-serif;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  width: auto;
+  background-color: #FFD24C;
+  border-color: transparent;
+  border-radius : 5px;
+  color: white;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.button:hover {
+  border : 2px solid #FFD24C;
+  background-color: white;
+  color : #FFD24C;
+  font-weight: bold;
+  box-shadow : 0 0.5em -0.4em #FFD24C;
+  transform : translateY(-0.25em);
+}
+
+a {
+  text-decoration-line: none;
+  font-size: 11pt;
+  font-weight: bold;
+  color: #92B4EC;
+}
