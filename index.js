@@ -84,6 +84,9 @@ app.get("/category3", category3);
 //scrap
 const scrap = require("./Controller/scrap");
 app.post("/scrap", scrap);
+//subscribe
+const subscribe = require("./Controller/subscribe");
+app.post("/subscribe", subscribe);
 
 app.listen(port);
 console.log(`app is listening port ${port}`);
