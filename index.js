@@ -69,6 +69,11 @@ app.post("/MyBoard/:post_num/delete", deleteBoard.deleteBoard);
 app.get("/OtherBoardList", showBoard.showOtherBoardList);
 app.get("/OtherBoard/:post_num", showBoard.showOtherBoard);
 app.post("/OtherBoard/:post_num", showBoard.showOtherBoard);
+//qna
+const writeQnA = require("./Controller/qnaController");
+app.post("/qna/Q", writeQnA.updateQuestion);
+app.post("/qna/A", writeQnA.updateAnswer);
+app.post("/qna/delete", writeQnA.deleteQuestion);
 
 app.listen(port);
 console.log(`app is listening port ${port}`);
