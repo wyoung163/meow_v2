@@ -42,6 +42,13 @@ const logout = require("./Controller/logout");
 app.get("/login", login);
 app.post("/login", login);
 app.get("/logout", logout);
+//user
+const editUser = require("./Controller/editController");
+const deleteUser = require("./Controller/deleteController");
+app.get("/edit", editUser.showEdit);
+app.post("/edit", editUser.updateEdit);
+app.get("/withdraw", deleteUser.showDelete);
+app.post("/withdraw", deleteUser.updateDelete);
 //profile
 const profile = require("./Controller/profile");
 const addProfile = require("./Controller/addProfile");
