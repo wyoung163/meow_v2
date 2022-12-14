@@ -1,0 +1,163 @@
+@charset "utf-8";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
+
+h1 {
+    text-align: center;
+    font-family: "Kdam Thmor Pro", sans-serif !important;
+}
+
+body {
+    margin: 20px;
+    font-size: 1.5rem;
+    font-family: "Noto Sans KR", sans-serif;
+    background-color: #FFF0C2 !important;
+}
+
+hr.line {
+    border: solid 1.5px #92B4EC;
+    width: 90%;
+    margin: auto;
+}
+.top {
+    position: relative;
+}
+.mainBar {
+    margin-left: 70px;
+}
+
+.mainBar li {
+    float: left;
+    list-style: none;
+    margin: 10px 40px;
+}
+
+.mainBar li a {
+    text-decoration: none;
+    color: black;
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+#card {
+    float: left;
+    text-align: center;
+    padding-left: 10px;
+}
+#card h4 {
+    font-weight: 600;
+    text-align: center;
+}
+
+#right {
+    float: left;
+    text-align: center;
+}
+#right h4 {
+    font-weight: 600; 
+    text-align: center;
+}
+
+div.wrap {
+    margin: 0 auto; 
+    /* overflow: hidden; */
+    /* padding-top: 10px; */
+}
+
+#card #li {
+    padding: 0px;
+    overflow: hidden;
+    position: relative;
+}
+  
+#card .card-body {
+position: absolute;
+border-radius: 10%;
+top: 200px;
+width: 150px;
+height: 150px;
+padding-top: 15%;
+background: rgba(0, 0, 0, 0.6);
+opacity: 0;
+transition: all 0.6s ease-in-out;
+z-index: 10;
+font-size: 13px;
+}
+
+#card #li:hover .card-body {
+opacity: 1;
+transform: translateY(-200px);
+}
+#card .card-body p {
+color: #fff;
+text-align: center;
+}
+
+#li {
+    width: 150px;
+    /* height:150px */
+}
+
+div > article {
+    float: left;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+* {
+    margin: 0;
+}
+.wrap {
+    padding: 10px 15px;
+}
+
+#button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  
+  #button {
+    margin: 0;
+    padding: 0.5rem 1rem;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: auto;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+    transition: 0.5s;
+  
+    padding: 7px;
+    background-color: #FFD24C;
+    border-color: transparent;
+    color: white;
+  }
+  
+  #button:hover {
+    border : 2px solid #FFD24C;
+    background-color: white;
+    color : #FFD24C;
+    font-weight: bold;
+    box-shadow : 0 0.5em -0.4em #FFD24C;
+    transform : translateY(-0.25em);
+  }
+
+.bottom {
+    float: left;
+    margin-left: 30px;
+}
+.bottom a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-family: "Noto Sans KR", sans-serif;
+}
+.bottom a:hover {
+    text-decoration: none;
+    color: black;
+}
