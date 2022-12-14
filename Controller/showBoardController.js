@@ -105,7 +105,7 @@ exports.showMyBoard = async (req, res) => {
     userList.push(data.user_id);
   }
 
-  res.render("board/showMyBoard", {
+  res.render("Board/showMyBoard", {
     title: "나의 게시글",
     title2: "Q&A",
     nickname: nickName[0][0].nickname,
@@ -159,7 +159,7 @@ exports.showOtherBoardList = async (req, res) => {
     postUser.push(data.user_id);
   }
 
-  res.render("board/showOtherBoardList", {
+  res.render("Board/showOtherBoardList", {
     title: "모든 게시글 목록",
     userid: userid,
     nickname: nickName[0][0].nickname,
@@ -267,7 +267,7 @@ WHERE po.post_num = ?`,
       userList.push(data.user_id);
     }
 
-    res.render("board/showMyBoard", {
+    res.render("Board/showMyBoard", {
       title: "나의 게시글",
       title2: "Q&A",
       nickname: mynickName[0][0].nickname,
@@ -320,7 +320,7 @@ WHERE po.post_num = ?`,
       }
     }
 
-    res.render("board/showOtherBoard", {
+    res.render("Board/showOtherBoard", {
       title: "게시글",
       title2: "Q&A",
       nickname: mynickName[0][0].nickname,

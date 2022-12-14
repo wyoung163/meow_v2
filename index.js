@@ -42,6 +42,15 @@ const logout = require("./Controller/logout");
 app.get("/login", login);
 app.post("/login", login);
 app.get("/logout", logout);
+//profile
+const profile = require("./Controller/profile");
+const addProfile = require("./Controller/addProfile");
+const editProfile = require("./Controller/editProfile");
+app.get("/profile/:userid", profile);
+app.get("/addProfile", addProfile);
+app.post("/addProfile", addProfile);
+app.get("/editProfile", editProfile);
+app.post("/editProfile", editProfile);
 //post
 const addBoard = require("./Controller/addBoard");
 const editBoard = require("./Controller/editBoard");
@@ -60,6 +69,28 @@ app.post("/MyBoard/:post_num/delete", deleteBoard.deleteBoard);
 app.get("/OtherBoardList", showBoard.showOtherBoardList);
 app.get("/OtherBoard/:post_num", showBoard.showOtherBoard);
 app.post("/OtherBoard/:post_num", showBoard.showOtherBoard);
+//qna
+const writeQnA = require("./Controller/qnaController");
+app.post("/qna/Q", writeQnA.updateQuestion);
+app.post("/qna/A", writeQnA.updateAnswer);
+app.post("/qna/delete", writeQnA.deleteQuestion);
+//category
+const category1 = require("./Controller/category1");
+const category2 = require("./Controller/category2");
+const category3 = require("./Controller/category3");
+app.get("/category1", category1);
+app.get("/category2", category2);
+app.get("/category3", category3);
+//scrap
+const scrap = require("./Controller/scrap");
+app.post("/scrap", scrap);
+//subscribe
+const subscribe = require("./Controller/subscribe");
+app.post("/subscribe", subscribe);
+//tag
+const addTag = require("./Controller/tag");
+app.get("/addTag", addTag);
+app.post("/addTag", addTag);
 
 app.listen(port);
 console.log(`app is listening port ${port}`);
