@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
+    <link href="/css/category.css" rel="stylesheet"/>
+    <title><%= title %></title>
+    <%- include('../partials/head') %>
+    <style>
+        .tab .list {
+        overflow-y: scroll;
+        height: 60px; 
+        }
+        .tab .list::-webkit-scrollbar {
+        width: 10px;
+        }
+        .tab .list::-webkit-scrollbar-track {
+        background-color: #b0adad;
+        border-radius: 100px;
+        }
+        .tab .list::-webkit-scrollbar-thumb {
+        background-color: #92B4EC;
+        border-radius: 100px;
+        }
+    </style>
+  </head>
+
+  <body>
+    <%- include('../partials/nav') %>
+    <h1><a href="/" style="text-decoration: none; color: black;">MEOW</a></h1>
+
+    <br>
+    <div class="main">
+        <div class="left">
+            <h3>CATEGORY</h3>
+            <ul class="bar">
+                <li><a href="/category1">나이대</a></li>
+                <li><a href="/category2">성별</a></li>
+                <li><a href="/category3">태그</a></li>
+            </ul>
+        </div>
+
+        <div class="center">
+            <div class="tab">
+                <ul class="list">
+                    <% for (var j=0; j<tag.length; j++) { %>
+                        <li class="is_on">
+                            <a href="#tab<%=j%>" class="btn"><%=tag[j].tag_cont%></a>
+                            <div id="card" class="cont">
+                                <% for (var i=0; i<row[j].length; i++) { %>
+                                    <div id="li">
+                                            <img src="<%=row[j][i].place_photo%>" style="width:150px; height:150px; object-fit: cover; border-radius: 10%;"/>
+                                            <div class="card-body" >
+                                                <p class="card-text"> <br> <%=row[j][i].place_name%> <br><br>
+                                                <a href = "/Otherboard/<%=row[j][i].post_num%>" style="text-decoration:none; color:white">구경하러가기</a></p>
+                                              <br><br>
+                                            </div>
+                                        </div>
+                                <% } %>
+                            </div>
+                        </li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const tabList = document.querySelectorAll('.tab .list li');
+        
+        for(var a=0; a<tabList.length; a++) {
+            tabList[a].classList.remove('is_on');
+        }
+        tabList[0].classList.add('is_on');
+
+        for(var i=0; i<tabList.length; i++) {
+            tabList[i].querySelector('.btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                for(var j=0; j<tabList.length; j++) {
+                    tabList[j].classList.remove('is_on');
+                }
+                this.parentNode.classList.add('is_on');
+            });
+        }
+    </script>
+  </body>
+</html>
+
+
+
