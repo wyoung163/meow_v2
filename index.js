@@ -87,6 +87,10 @@ app.post("/scrap", scrap);
 //subscribe
 const subscribe = require("./Controller/subscribe");
 app.post("/subscribe", subscribe);
+//tag
+const addTag = require("./Controller/tag");
+app.get("/addTag", addTag);
+app.post("/addTag", addTag);
 
 app.listen(port);
 console.log(`app is listening port ${port}`);
