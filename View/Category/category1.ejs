@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
+    <link href="/css/category.css" rel="stylesheet"/>
+    <title><%= title %></title>
+    <%- include('../partials/head') %>
+    <style>
+
+    </style>
+  </head>
+
+  <body>
+    <%- include('../partials/nav') %>
+    <h1><a href="/" style="text-decoration: none; color: black">MEOW</a></h1>
+
+    <br>
+    <div class="main">
+        <div class="left">
+            <h3>CATEGORY</h3>
+            <ul class="bar">
+                <li><a href="/category1">나이대</a></li>
+                <li><a href="/category2">성별</a></li>
+                <li><a href="/category3">태그</a></li>
+            </ul>
+        </div>
+
+        <div class="center" >
+
+            <div class="tab">
+
+                <ul class="list">
+                    <li class="is_on">
+                        <a href="#tab1" class="btn">10대</a>
+                        <div id="card" class="cont">
+                            <!-- id가 tab1이었던 거 card로 바꿈 -->
+                            <% for (var i=0; i<data1.length; i++) { %>
+                                <div id="li">
+                                    <img src="<%=data1[i].place_photo%>" style="width:150px; height:150px; object-fit: cover; border-radius: 10%;"/>
+                                    <div class="card-body" >
+                                        <p class="card-text"> <br> <%=data1[i].place_name%> <br><br>
+                                        <a href = "/Otherboard/<%=data1[i].post_num%>" style="text-decoration:none; color:white">구경하러가기</a></p>
+                                      <br><br>
+                                    </div>
+                                </div>
+                                <% } %>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#tab2" class="btn">20대</a>
+
+                        <div id="card" class="cont">
+                            <!-- id가 tab2이었던 거 card로 바꿈 -->
+                            <% for (var i=0; i<data2.length; i++) { %>
+                                <div id="li">
+                                    <img src="<%=data2[i].place_photo%>" style="width:150px; height:150px; object-fit: cover; border-radius: 10%;"/>
+                                    <div class="card-body" >
+                                        <p class="card-text"> <br> <%=data2[i].place_name%> <br><br>
+                                        <a href = "/Otherboard/<%=data2[i].post_num%>" style="text-decoration:none; color:white">구경하러가기</a></p>
+                                      <br><br>
+                                    </div>
+                                </div>
+                                <% } %>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#tab3" class="btn">30대</a>
+                        <div id="card" class="cont">
+                            <!-- id가 tab3이었던 거 card로 바꿈 -->
+                            <% for (var i=0; i<data3.length; i++) { %>
+                                <div id="li">
+                                    <img src="<%=data3[i].place_photo%>" style="width:150px; height:150px; object-fit: cover; border-radius: 10%;"/>
+                                    <div class="card-body" >
+                                        <p class="card-text"> <br> <%=data3[i].place_name%> <br><br>
+                                        <a href = "/Otherboard/<%=data3[i].post_num%>" style="text-decoration:none; color:white">구경하러가기</a></p>
+                                      <br><br>
+                                    </div>
+                                </div>
+                                <% } %>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#tab4" class="btn">40대</a>
+                        <div id="card" class="cont">
+                            <!-- id가 tab4이었던 거 card로 바꿈 -->
+                            <% for (var i=0; i<data4.length; i++) { %>
+                                <div id="li">
+                                    <img src="<%=data4[i].place_photo%>" style="width:150px; height:150px; object-fit: cover; border-radius: 10%;"/>
+                                    <div class="card-body" >
+                                        <p class="card-text"> <br> <%=data4[i].place_name%> <br><br>
+                                        <a href = "/Otherboard/<%=data4[i].post_num%>" style="text-decoration:none; color:white">구경하러가기</a></p>
+                                      <br><br>
+                                    </div>
+                                </div>
+                                <% } %>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#tab5" class="btn">50대</a>
+                        <div id="card" class="cont">
+                            <!-- id가 tab5이었던 거 card로 바꿈 -->
+                            <% for (var i=0; i<data5.length; i++) { %>
+                                <div id="li">
+                                    <img src="<%=data5[i].place_photo%>" style="width:150px; height:150px; object-fit: cover; border-radius: 10%;"/>
+                                    <div class="card-body" >
+                                        <p class="card-text"> <br> <%=data5[i].place_name%> <br><br>
+                                        <a href = "/Otherboard/<%=data5[i].post_num%>" style="text-decoration:none; color:white">구경하러가기</a></p>
+                                      <br><br>
+                                    </div>
+                                </div>
+                                <% } %>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#tab6" class="btn">60대</a>
+                        <div id="card" class="cont">
+                            <!-- id가 tab6이었던 거 card로 바꿈 -->
+                            <% for (var i=0; i<data6.length; i++) { %>
+                                <div id="li">
+                                    <img src="<%=data6[i].place_photo%>" style="width:150px; height:150px; object-fit: cover; border-radius: 10%;"/>
+                                    <div class="card-body" >
+                                        <p class="card-text"> <br> <%=data6[i].place_name%> <br><br>
+                                        <a href = "/Otherboard/<%=data6[i].post_num%>" style="text-decoration:none; color:white">구경하러가기</a></p>
+                                      <br><br>
+                                    </div>
+                                </div>
+                                <% } %>
+                        </div>
+                    </li>
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const tabList = document.querySelectorAll('.tab .list li');
+
+        for(var i=0; i<tabList.length; i++) {
+            tabList[i].querySelector('.btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                for(var j=0; j<tabList.length; j++) {
+                    tabList[j].classList.remove('is_on');
+                }
+                this.parentNode.classList.add('is_on');
+            });
+        }
+    </script>
+  </body>
+</html>
