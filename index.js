@@ -81,6 +81,9 @@ const category3 = require("./Controller/category3");
 app.get("/category1", category1);
 app.get("/category2", category2);
 app.get("/category3", category3);
+//scrap
+const scrap = require("./Controller/scrap");
+app.post("/scrap", scrap);
 
 app.listen(port);
 console.log(`app is listening port ${port}`);
