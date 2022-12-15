@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: mysql-config
 data:
-  host: "localhost"
-  port: "3306"
-  database: "meow"
-  user: "wyoung"
+  host: 34.64.210.53
+  port: 3306
+  database: meow
+  user: wyoung
