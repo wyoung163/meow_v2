@@ -28,25 +28,13 @@ spec:
           - name: DB_HOST
             value: 34.64.210.53
           - name: PORT
-            valueFrom:
-              configMapKeyRef: 
-                name: mysql-config
-                key: port
+            value: 3306
           - name: DB_NAME
-            valueFrom:
-              configMapKeyRef:
-                name: mysql-config
-                key: database
+            value: meow
           - name: DB_USER
-            valueFrom:
-              configMapKeyRef:
-                name: mysql-config
-                key: user
+            value: wyoung
           - name: DB_PWD
-            valueFrom:
-              configMapKeyRef:
-                name: mysql-config
-                key: user
+            value: wyoung
 ---
 apiVersion: v1
 kind: Service
