@@ -26,10 +26,7 @@ spec:
           name: prbasedtest
         env:
           - name: DB_HOST
-            valueFrom:
-              configMapKeyRef:
-                name: mysql-config
-                key: host
+            value: 34.64.210.53
           - name: PORT
             valueFrom:
               configMapKeyRef: 
