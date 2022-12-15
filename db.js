@@ -4,10 +4,10 @@ const mysql = require("mysql2/promise");
 dotenv.config();
 
 const pool = mysql.createPool({
-  host     : process.env.DB_HOST || "34.64.210.53",
-  user     : process.env.DB_USER || "wyoung",
-  password : process.env.DB_PWD || "wyoung",
-  database : process.env.DB_NAME || "meow",
+  host     : process.env.DB_HOST,
+  user     : process.env.DB_USER,
+  password : process.env.DB_PWD,
+  database : process.env.DB_NAME,
   dateStrings: 'date',
   charset: 'utf8mb4',
 });
