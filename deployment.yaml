@@ -47,9 +47,9 @@ spec:
                 key: user
           - name: DB_PWD
             valueFrom:
-              secretKeyRef:
-                name: mysql-secret
-                key: password
+              configMapKeyRef:
+                name: mysql-config
+                key: user
 ---
 apiVersion: v1
 kind: Service
