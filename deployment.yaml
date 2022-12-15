@@ -27,14 +27,12 @@ spec:
         env:
           - name: DB_HOST
             value: 34.64.210.53
-          - name: PORT
-            value: 3306
           - name: DB_NAME
-            value: meow
+            value: "meow"
           - name: DB_USER
-            value: wyoung
+            value: "wyoung"
           - name: DB_PWD
-            value: wyoung
+            value: "wyoung"
 ---
 apiVersion: v1
 kind: Service
