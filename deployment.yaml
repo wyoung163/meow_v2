@@ -25,28 +25,31 @@ spec:
         - containerPort: 5000
           name: prbasedtest
         env:
-          - name: DB_HOST
-            value: 34.64.210.53
-          - name: PORT
-            valueFrom:
-              configMapKeyRef: 
-                name: mysql-config
-                key: port
-          - name: DB_NAME
-            valueFrom:
-              configMapKeyRef:
-                name: mysql-config
-                key: database
-          - name: DB_USER
-            valueFrom:
-              configMapKeyRef:
-                name: mysql-config
-                key: user
-          - name: DB_PWD
-            valueFrom:
-              configMapKeyRef:
-                name: mysql-config
-                key: user
+        - name: DB_HOST
+          valueFrom:
+            configMapKeyRef: 
+              name: mysql-config
+              key: host
+        - name: PORT
+          valueFrom:
+            configMapKeyRef: 
+              name: mysql-config
+              key: port
+        - name: DB_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: mysql-config
+              key: database
+        - name: DB_USER
+          valueFrom:
+            configMapKeyRef:
+              name: mysql-config
+              key: user
+        - name: DB_PWD
+          valueFrom:
+            configMapKeyRef:
+              name: mysql-config
+              key: user
 ---
 apiVersion: v1
 kind: Service
