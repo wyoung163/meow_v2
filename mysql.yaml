@@ -52,14 +52,14 @@ spec:
                 key: user
           - name: DB_PWD
             valueFrom:
-              configMapKeyRef:
-                name: mysql-config
-                key: user
+              secretKeyRef:
+                name: mysql-secret
+                key: password
           - name: MYSQL_ROOT_PASSWORD
             valueFrom:
-              configMapKeyRef:
-                name: mysql-config
-                key: user
+              secretKeyRef:
+                name: mysql-secret
+                key: password
         volumeMounts:
         - name: mysql-config
           mountPath: "/config"
