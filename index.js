@@ -6,7 +6,7 @@ const ejs = require("ejs");
 const multer = require("multer");
 const upload = multer({dest: "./upload"});
 
-const port = 5000;
+const port = 8080;
 
 app.set("view engine", "ejs");
 app.set("views", "View");
@@ -99,5 +99,33 @@ const addTag = require("./Controller/tag");
 app.get("/addTag", addTag);
 app.post("/addTag", addTag);
 
-app.listen(port);
+//chat
+const server = app.listen(port);
+const webSocket = require("./socket");
+
+app.get('/chat', (req, res) => { 
+  res.render(__dirname + '/View/Chat/chat.ejs');
+});
+
+webSocket(server);
+
+/*
+io.on('connection', (socket)=>{
+  socket.on('request_message', (msg) => {
+      // response_message로 접속중인 모든 사용자에게 msg 를 담은 정보를 방출한다.
+      io.emit('response_message', msg);
+  });
+
+  socket.on('disconnect', async () => {
+      console.log('user disconnected');
+  });
+});
+
+
+// TEST CODE GOES HERE
+(async function(){
+})();
+*/
+
+//app.listen(port);
 console.log(`app is listening port ${port}`);
