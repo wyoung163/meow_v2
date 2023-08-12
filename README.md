@@ -5,5 +5,5 @@
 #### 인기 게시글, 장소 별 게시글, 태그 별 게시글 등 다양한 카데고리에 따라 게시글을 확인할 수 있습니다.
 
 # 개발 스택 
-#### Express, Node.js, CSS, npm, GCP, Docker, Jenkins, Kubernetes
+#### Express, Node.js, CSS, npm, GCP, AWS, Docker, Jenkins, Kubernetes
 
