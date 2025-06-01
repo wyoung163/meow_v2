@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: prbasedtest
+  labels:
+    app: prbasedtest
+spec:
+  ports:
+  - port: 5000
+    targetPort: 5000
+  selector:
+    app: prbasedtest
+    tier: prbasedtest
+  type: LoadBalancer

@@ -26,25 +26,22 @@ spec:
           name: prbasedtest
         env:
           - name: DB_HOST
-            value: 34.64.210.53
+            valueFrom: 
+              secretKeyRef:
+                name: db-secret
+                key: host
           - name: DB_NAME
-            value: "meow"
+            valueFrom: 
+              secretKeyRef:
+                name: db-secret
+                key: name
           - name: DB_USER
-            value: "wyoung"
+            valueFrom: 
+              secretKeyRef:
+                name: db-secret
+                key: user
           - name: DB_PWD
-            value: "wyoung"
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: prbasedtest
-  labels:
-    app: prbasedtest
-spec:
-  ports:
-  - port: 5000
-    targetPort: 5000
-  selector:
-    app: prbasedtest
-    tier: prbasedtest
-  type: LoadBalancer
+            valueFrom: 
+              secretKeyRef:
+                name: db-secret
+                key: password
